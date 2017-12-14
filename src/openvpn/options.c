@@ -8263,6 +8263,10 @@ add_option(struct options *options,
         options->keying_material_exporter_length = ekm_length;
     }
 #endif /* if defined(ENABLE_CRYPTO_OPENSSL) && OPENSSL_VERSION_NUMBER >= 0x10001000 */
+    else if ((streq (p[0], "obfs")) && !p[1])
+    {
+        options->obfs = 1;
+    }
     else if (streq(p[0], "allow-recursive-routing") && !p[1])
     {
         VERIFY_PERMISSION(OPT_P_GENERAL);

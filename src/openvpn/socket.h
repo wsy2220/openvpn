@@ -342,6 +342,9 @@ void link_socket_close(struct link_socket *sock);
 
 void sd_close(socket_descriptor_t *sd);
 
+void obfs_buf(struct buffer *buf);
+void unobfs_buf(struct buffer *buf);
+
 #define PS_SHOW_PORT_IF_DEFINED (1<<0)
 #define PS_SHOW_PORT            (1<<1)
 #define PS_SHOW_PKTINFO         (1<<2)

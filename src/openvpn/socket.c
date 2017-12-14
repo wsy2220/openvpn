@@ -3181,6 +3181,26 @@ bad_address_length(int actual, int expected)
 }
 
 /*
+ * Obfuscate buffer before sending
+ */
+void obfs_buf(struct buffer *buf)
+{
+    int i;
+    for(i = buf->offset; i < buf->len + buf->offset; i++)
+        buf->data[i] = ~buf->data[i];
+}
+
+/*
+ * Recover from obfuscated buffer
+ */
+void unobfs_buf(struct buffer *buf)
+{
+    int i;
+    for(i = buf->offset; i < buf->len + buf->offset; i++)
+        buf->data[i] = ~buf->data[i];
+}
+
+/*
  * Socket Read Routines
  */
 
